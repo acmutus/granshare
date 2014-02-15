@@ -1,12 +1,14 @@
 from pymongo import MongoClient
-client = MongoClient('localhost',27017)
-db = client.pennapps
+from twilio import twiml
+from twilio.rest import TwilioRestClient
 import string
 import random
 import json
 import hashlib
 from flask import Flask, session, redirect, url_for, request,render_template, flash
 app = Flask(__name__)
+client = MongoClient('localhost',27017)
+db = client.pennapps
 APP_SECRET_KEY = 'pennapps'
 
 def make_random_salt(length):
@@ -17,6 +19,9 @@ def make_password_hash(username, password, salt):
     return '%s|%s' %(h, salt)
 
 
+@app.route('/sms',methods=['POST'])
+def sms():
+        print "hello"
 
 @app.route('/createAccount',methods=['POST'])
 def createAccount():
