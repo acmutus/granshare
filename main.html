@@ -2,12 +2,18 @@
 <html>
 <link rel = "stylesheet" href = "http://getbootstrap.com/dist/css/bootstrap.css">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type = "text/javascript"src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="./scripts/main.js"></script>
 <style>
-.price-input {
-	width: 200px;
+.element {
+	width: inherit;
 	float: left;
 	margin-left: 20px;
+	display: inline-block;
+}
+#accordion {
+	margin-left: 20%;
+	display: inline-block;
 }
 </style>
 <head>
@@ -15,22 +21,34 @@
 </head>
 <body>
 	<h1>Cost Sharing Application</h1>
-	<form class = "form-horizontal price-input">
-		<div class = "form-group">
-			What is your name?
-			<input type = "text" id = "name" class="form-control">
+	<div>
+		
+	</div>
+	<div id = "accordion" class = "element">
+		<h3>Create a group</h3>
+		<div>Name of group</div>
+		<h3>Your groups</h3>
+		<div>
+			<ul id ="groups">
+
+			</ul>
 		</div>
-		<div class = "form-group">
-			What did you buy?
-			<input type = "text" id = "description" class="form-control">
+		<h3>Add an expense</h3>
+		<div>
+			<form action = "/addExpense" method = "post" class = "form-horizontal price-input element">
+				<div class = "form-group">
+					What did you buy?
+					<input type = "text" id = "description" class="form-control">
+				</div>
+				<div class = "form-group">
+					How much was it?
+					<input type = "text" id = "price" class="form-control">
+				</div>
+				<div class = "form-group">
+					<input type = "submit" class = "btn btn-primary form-control" value = "Submit">
+				</div>
+			</form>
 		</div>
-		<div class = "form-group">
-			How much was it?
-			<input type = "text" id = "price" class="form-control">
-		</div>
-		<div class = "form-group">
-			<input type = "submit" class = "btn btn-primary form-control" value = "Submit">
-		</div>
-	</form>
+	</div>
 </body>
 </html>
