@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $("#accordion").accordion({ header: "h3", collapsible: true, active: false });
-    if()
   });
 
 var getUserInfo = function() {
