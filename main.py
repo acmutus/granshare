@@ -22,8 +22,52 @@ def make_password_hash(username, password, salt):
 @app.route('/sms',methods=['POST'])
 def sms():
         print "hello"
-        #body = request.form['Body']
+	print "hello"
+	client = TwilioRestClient('AC30244638ab359ff346c2c26c324834a7','d499815d808aac1aaa5c2fe3306147c6')
+	response = twiml.Response()
+        body = request.form['Body']
+	if 'display' in body:
+		print "Entered display "
+	else:
+		#function to parse the data parse the data
+		#############################################
+		#############################################
+		#############################################
+		i=1
+		groupList = []
+		descList=[]
+		s=''
+		while i < len(body):
+        		if body[i]==' ':
+	            	    	break
+        		if body[i]=='#':
+                		groupList.append(s)
+                		s=''
+        		else:
+                		s=s+body[i]
+        		i=i+1
+		groupList.append(s)
+		desc=''
+		while i < len(body):
+        		if body[i]=='$':
+                		i=i+1
+                		break
+        		desc=desc+body[i]
+        		i=i+1;
+		descList.append(desc)
+		print groupList
+		print descList
+		price=' '
+		priceList=[]
+		while i < len(body):
+        		price=price+body[i]
+        		i=i+1
+		priceList.append(float(price))
+		print priceList
 
+		#############################################
+		#############################################
+		#############################################
 
 @app.route('/createAccount',methods=['POST'])
 def createAccount():
