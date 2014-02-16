@@ -22,6 +22,8 @@ def make_password_hash(username, password, salt):
 @app.route('/sms',methods=['POST'])
 def sms():
         print "hello"
+        #body = request.form['Body']
+
 
 @app.route('/createAccount',methods=['POST'])
 def createAccount():
